@@ -1,32 +1,31 @@
 package com.example.contants;
 
-import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
-    Context context;
-    String items[];
 
-    public MyAdapter(Context context, String items[]){
-        this.context = context;
+    Contact items[];
+
+    public MyAdapter(Contact items[]){
         this.items = items;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        return null;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.my_row,parent,false);
+        return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        holder.txt.setText(items[position].name);
     }
 
     @Override
@@ -35,8 +34,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        public MyViewHolder(@NonNull View view){
+        TextView txt;
+
+        public MyViewHolder(View view){
             super(view);
+            txt = (TextView)view.findViewById(R.id.user_name);
         }
+
     }
 }
