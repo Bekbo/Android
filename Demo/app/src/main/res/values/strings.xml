@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Demo</string>
+    <string name="app_in_name">iTerra</string>
+    <string name="app_name_after">Добро пожаловать ! ! !</string>
+    <string name="text_bottom">Все права защищены</string>
+    <string name="sign_in">Войти</string>
+    <string name="sign_up">Зарегестрироваться</string>
+    <string name="app_name_after_reg">Форма регистрации</string>
+    <string name="text_bottom_reg_page">Форма Регистрации</string>
+    <string name="hint_password">Пароль</string>
+    <string name="hint_phone">+7 _______</string>
+    <string name="hint_email">myemail@mail.com</string>
+
+</resources>
