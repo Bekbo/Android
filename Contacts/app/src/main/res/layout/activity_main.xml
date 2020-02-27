@@ -3,15 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:background="@color/cardview_dark_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:layout_marginLeft="20px"
+        android:layout_marginTop="20px"
+        android:text="Contacts"
+        android:textColor="@color/white"
+        android:textSize="24sp"></TextView>
     <androidx.recyclerview.widget.RecyclerView
+        android:background="@color/div"
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="contactClick" />
-
+        />
 
 </LinearLayout>

@@ -5,7 +5,6 @@ public class Contact{
     String number;
     String work;
 
-
     public Contact(String name, String number){
         this.name = name;
         this.number = number;
