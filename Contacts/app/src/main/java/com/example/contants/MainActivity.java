@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
+
     RecyclerView recyclerView;
     Contact contacts[] = Database.getContacts();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
