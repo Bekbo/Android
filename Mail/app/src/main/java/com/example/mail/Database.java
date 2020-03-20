@@ -4,11 +4,11 @@ public class Database {
     private static int pos;
     private static final Mail mails[] ={
             new Mail("title1", "body1", "Alik"),
-            new Mail("title2", "body2", "Bekbolat"),
-            new Mail("title3", "body3", "Google"),
-            new Mail("title4", "body4", "Yandex"),
-            new Mail("title5", "body5", "WSP"),
-            new Mail("title6", "body6", "Notification"),
+            new Mail("title2asdf", "asdfsad", "Bekbolat"),
+            new Mail("title3asdf", "bofasdfady3", "Google"),
+            new Mail("titleasd4", "basdfody4", "Yandex"),
+            new Mail("title5ff", "body5", "WSP"),
+            new Mail("title6ghj", "fdsafbody6", "Notification"),
 
     };
     public static Mail[] getMails(){

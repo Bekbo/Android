@@ -1,39 +1,48 @@
 package com.example.mail;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
     EditText email, password;
-    String emailText = "noreply@agendize.com", passwordText = "1";
+    private String pref = "my_acc_info_pref";
+    static SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
         email = findViewById(R.id.email);
-        email.setText(emailText);
         password = findViewById(R.id.password);
-    }
+        sharedPreferences = getSharedPreferences(pref, Context.MODE_PRIVATE);
 
-    public void logIn(View v){
-        Intent logged = new Intent(LoginActivity.this, MainActivity.class);
-        logged.putExtra("email", emailText);
-        startActivity(logged);
-        if (email.getText().toString() == emailText){
-            if (password.getText().toString() == passwordText){
-                Intent logged1 = new Intent(LoginActivity.this, MainActivity.class);
-                logged.putExtra("email", emailText);
-                startActivity(logged1);
-            }else{
-                Toast.makeText(this,"Wrong password", Toast.LENGTH_LONG).show();
-            }
-        }else{
-            Toast.makeText(this,"Wrong email", Toast.LENGTH_LONG).show();
+        if(!sharedPreferences.getString("email", "No email.!").equals("No email.!")){
+            Intent logged = new Intent(LoginActivity.this, MainActivity.class);
+            logged.putExtra("emailLogged", sharedPreferences.getString("email", "No email.!"));
+            startActivity(logged);
+            finish();
         }
     }
+    public void logIn(View v){
+        Intent logged = new Intent(LoginActivity.this, MainActivity.class);
+        if(sharedPreferences.getString("email", "No email.!").equals("No email.!")){
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("email", email.getText().toString());
+            editor.putString("password", password.getText().toString());
+            editor.apply();
+            logged.putExtra("emailLogged", sharedPreferences.getString("email", "No email.!"));
+            startActivity(logged);
+            finish();
+        }
+    }
+    public static void logouting(){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+    }
+
 }
