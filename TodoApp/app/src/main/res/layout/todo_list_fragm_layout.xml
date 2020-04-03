@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="5"
+    android:background="#000000"
+    >
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/todolistRecycler"
+        android:layout_weight="4"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+    <Button
+        android:id="@+id/addTodo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:onClick="addTodo"
+        android:text="Add ToDo Task"/>
+</LinearLayout>
